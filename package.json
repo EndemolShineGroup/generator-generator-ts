@@ -3,10 +3,11 @@
   "description": "A Yeoman generator for typescript based generators",
   "version": "0.0.1",
   "license": "MIT",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": "generators",
-  "keywords": ["yeoman-generator"],
+  "main": "generators/app/index.js",
+  "types": "generators/app/index.d.ts",
+  "keywords": [
+    "yeoman-generator"
+  ],
   "author": {
     "name": "Endemol Shine Group Technology",
     "url": "https://github.com/EndemolShineGroup"
@@ -22,15 +23,20 @@
   },
   "scripts": {
     "commit": "git-cz",
-    "build": "rimraf dist/ && tsc",
+    "prebuild": "rimraf generators/",
+    "build": "tsc",
+    "postbuild": "scripts/copyTemplates.sh",
     "build:docs": "rimraf docs/api && typedoc --out docs/api --target es6 --theme minimal --mode file src",
     "build:watch": "tsc --watch",
     "lint": "tslint -p tsconfig.json -t codeFrame 'src/**/*.ts' -e 'src/**/*.spec.ts'",
     "pretest": "rimraf coverage/",
-    "test": "jest --no-cache",
+    "test": "jest --no-cache --coverage",
     "semantic-release": "semantic-release"
   },
   "dependencies": {
+    "@endemolshinegroup/generator-nodejs-ts": "^1.11.0",
+    "deep-extend": "^0.6.0",
+    "generator-generator": "^4.0.2",
     "tslib": "^1.9.3",
     "yeoman-generator": "^3.1.1"
   },
@@ -42,6 +48,7 @@
     "@endemolshinegroup/tslint-config": "^1",
     "@semantic-release/changelog": "^3",
     "@semantic-release/git": "^7",
+    "@types/deep-extend": "^0.4.31",
     "@types/jest": "^23",
     "@types/node": "^10",
     "@types/yeoman-generator": "^3.0.0",
@@ -65,5 +72,4 @@
   "publishConfig": {
     "access": "public"
   }
-
 }

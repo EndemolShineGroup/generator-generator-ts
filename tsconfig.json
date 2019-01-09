@@ -7,8 +7,8 @@
       "es2015"
     ],
     "module": "commonjs",
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "outDir": "generators",
+    "rootDir": "src",
     "sourceMap": true,
     "strict": true,
     "target":"ES2015"

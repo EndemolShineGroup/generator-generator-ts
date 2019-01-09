@@ -1,5 +1,6 @@
-import filterAndTrim from '@endemolshinegroup/generator-nodejs-ts/generators/lib/filterAndTrim';
 import Generator from 'yeoman-generator';
+
+import filterAndTrim from '@endemolshinegroup/generator-nodejs-ts/generators/lib/filterAndTrim';
 
 const prompts: Generator.Questions = [
   {
@@ -16,7 +17,7 @@ const prompts: Generator.Questions = [
     type: 'input',
   },
   {
-    default: 'A Yeoman generator written in TypeScript 🙏',
+    default: 'A NodeJS project written in TypeScript 🙏',
     filter: filterAndTrim,
     message: 'Description: ',
     name: 'projectDescription',
