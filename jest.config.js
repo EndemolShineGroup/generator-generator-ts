@@ -26,6 +26,9 @@ module.exports = {
     'src',
     'node_modules',
   ],
+  modulePathIgnorePatterns: [
+    '.*/templates'
+  ],
   testMatch: [
     ...preset.testMatch,
     '**/?(*.)+(spec|integ|test).ts?(x)',
